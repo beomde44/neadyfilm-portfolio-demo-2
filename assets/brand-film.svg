@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="55%" stop-color="#26221f"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.08"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <rect width="1600" height="900" filter="url(#noise)" opacity="0.35"/>
+  <circle cx="1210" cy="250" r="260" fill="#efe7da" opacity="0.06"/>
+  <circle cx="300" cy="680" r="380" fill="#8b3e32" opacity="0.08"/>
+  <line x1="120" y1="120" x2="1480" y2="780" stroke="#efe7da" opacity="0.08" stroke-width="2"/>
+  <text x="110" y="120" fill="#efe7da" opacity="0.62" font-family="Helvetica, Arial, sans-serif" font-size="24" letter-spacing="6">NEADY FILM</text>
+  <text x="110" y="500" fill="#efe7da" font-family="Helvetica, Arial, sans-serif" font-size="96" letter-spacing="-2" font-weight="700">BRAND FILM</text>
+  <text x="116" y="570" fill="#efe7da" opacity="0.72" font-family="Helvetica, Arial, sans-serif" font-size="34" letter-spacing="1">Atmosphere / People / Product</text>
+  <rect x="110" y="650" width="220" height="2" fill="#efe7da" opacity="0.5"/>
+</svg>
