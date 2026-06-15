@@ -11,8 +11,11 @@ desktop.ini
 
 # Dependencies and build output
 node_modules/
+.next/
 dist/
 build/
+out/
+.playwright-cli/
 
 # Logs and local environment
 *.log
