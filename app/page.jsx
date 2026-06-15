@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const navLinks = [
   { href: "#works", label: "Works" },
+  { href: "/archive", label: "Archive" },
   { href: "#services", label: "Services" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
@@ -11,97 +12,145 @@ const navLinks = [
 
 const filterButtons = [
   { id: "all", label: "전체" },
-  { id: "brand", label: "브랜드 필름" },
-  { id: "event", label: "행사 영상" },
-  { id: "performance", label: "공연 영상" },
-  { id: "gear", label: "장비 리뷰" },
+  { id: "documentary", label: "미니 다큐" },
+  { id: "dance", label: "댄스필름" },
+  { id: "performance", label: "퍼포먼스" },
+  { id: "event", label: "행사 스케치" },
+  { id: "review", label: "리뷰 채널" },
 ];
 
 const projects = [
   {
-    category: "brand",
-    image: "/assets/brand-film.svg",
-    imageAlt: "브랜드 필름 프로젝트 임시 썸네일",
-    label: "브랜드 필름 프로젝트 열기",
-    type: "Brand Film / 2026",
-    title: "Project 01 - Brand Mood Film",
-    description: "브랜드의 분위기, 제품의 존재감, 사람의 디테일을 중심으로 설계한 무드 필름입니다.",
-    role: "연출 / 촬영 / 편집",
+    category: "documentary",
+    featured: true,
+    image: "/assets/kosmos-project-2026.webp",
+    imageAlt: "Kosmos Project thumbnail",
+    href: "https://youtu.be/xU5_6JX4TA0",
+    type: "Mini Documentary / 2026",
+    title: "Kosmos Project",
+    description:
+      "코스모스 프로젝트는 “art, world and we”라는 슬로건 아래 다양한 아티스트들의 세계관과 예술 철학을 기록하는 인터뷰 형식의 미니 다큐멘터리 프로젝트입니다.",
+    role: "촬영 / 조명 / 색보정 / 편집",
+    release: "Public",
+    actions: [{ label: "영상 보기", href: "https://youtu.be/xU5_6JX4TA0" }],
+  },
+  {
+    category: "dance",
+    image: "/assets/dance-film-01.webp",
+    imageAlt: "1min Improvisation thumbnail",
+    href: "https://youtu.be/qmvkKhKLPbU?si=xffRqaEOJKO_Zze6",
+    type: "Dance Film / 2026",
+    title: "1min Improvisation",
+    description:
+      "최소한의 편집점을 제외한 모든 과정이 즉흥적 퍼포먼스로 진행된 작업입니다. 퍼포머와 촬영자가 현장에서 함께 반응하며 만든 댄스필름입니다.",
+    role: "촬영 / 편집",
+    release: "Public",
+    actions: [{ label: "영상 보기", href: "https://youtu.be/qmvkKhKLPbU?si=xffRqaEOJKO_Zze6" }],
+  },
+  {
+    category: "dance",
+    image: "/assets/dance-film-02.webp",
+    imageAlt: "Circle of life - 순환 thumbnail",
+    href: "https://youtu.be/_Hav2WOc-qg",
+    type: "Dance Film / 2025",
+    title: "Circle of life - 순환",
+    description:
+      "최소한의 편집점을 제외한 모든 과정이 즉흥적 퍼포먼스로 진행된 작업입니다. 퍼포머와 촬영자 모두 현장에서 즉흥적으로 작업을 진행했습니다.",
+    role: "촬영 / 편집",
+    release: "Public",
+    actions: [{ label: "영상 보기", href: "https://youtu.be/_Hav2WOc-qg" }],
   },
   {
     category: "event",
-    image: "/assets/event-film.svg",
-    imageAlt: "행사 영상 프로젝트 임시 썸네일",
-    label: "행사 영상 프로젝트 열기",
-    type: "Event Film / 2026",
-    title: "Project 02 - Corporate Event Sketch",
-    description: "현장의 분위기, 주요 장면, 인터뷰를 연결해 구성한 다큐멘터리 스타일의 행사 스케치 영상입니다.",
-    role: "촬영 / 편집 / 색보정",
+    image: "/assets/event-sketch-01.webp",
+    imageAlt: "ASDFxHousetrain thumbnail",
+    href: "https://youtu.be/kEqJIk01OhU",
+    type: "Event Sketch / 2025",
+    title: "ASDFxHousetrain",
+    description: "ASDF와 Housetrain의 퍼포먼스, 파티, 워크샵 나잇을 기록한 행사 스케치 영상입니다.",
+    role: "촬영 / 편집",
+    release: "Public",
+    actions: [{ label: "영상 보기", href: "https://youtu.be/kEqJIk01OhU" }],
   },
   {
-    category: "brand",
-    image: "/assets/restaurant.svg",
-    imageAlt: "레스토랑 소셜 콘텐츠 프로젝트 임시 썸네일",
-    label: "레스토랑 콘텐츠 프로젝트 열기",
-    type: "Restaurant / Social Content",
-    title: "Project 03 - Restaurant & Space Content",
-    description: "레스토랑, 공간, 라이프스타일 브랜드의 분위기를 지속적으로 쌓아가는 숏폼 콘텐츠입니다.",
-    role: "기획 / 촬영 / 편집",
+    category: "event",
+    image: "/assets/event-sketch-02.webp",
+    imageAlt: "스마트 저축은행 체육대회 thumbnail",
+    href: "https://youtu.be/yyKmHvNNsEY",
+    type: "Event Sketch / 2026",
+    title: "스마트 저축은행 체육대회",
+    description: "스마트 저축은행 체육대회의 현장 분위기와 주요 순간을 기록한 행사 스케치 영상입니다.",
+    role: "촬영 / 편집",
+    release: "Public",
+    actions: [{ label: "영상 보기", href: "https://youtu.be/yyKmHvNNsEY" }],
   },
   {
     category: "performance",
-    image: "/assets/performance.svg",
-    imageAlt: "공연 영상 프로젝트 임시 썸네일",
-    label: "공연 영상 프로젝트 열기",
-    type: "Performance / Dance Film",
-    title: "Project 04 - Movement-based Film",
-    description: "리듬, 신체, 공간, 무대의 에너지를 중심으로 구성한 움직임 기반 영상입니다.",
-    role: "연출 / 촬영 / 편집",
+    image: "/assets/maiskind-project.webp",
+    imageAlt: "Maiskind Project thumbnail",
+    href: "https://youtu.be/xLYul6q663M",
+    type: "Performance Project Video / 2021",
+    title: "Maiskind Project",
+    description: "독일에서 진행된 Maiskind Project의 퍼포먼스 단편영화 중 한 파트입니다.",
+    role: "촬영 / 편집",
+    release: "Public",
+    actions: [
+      { label: "영상 보기", href: "https://youtu.be/xLYul6q663M" },
+      { label: "외부 페이지", href: "https://www.maiskind.com" },
+    ],
   },
   {
-    category: "gear",
-    image: "/assets/gear-review.svg",
-    imageAlt: "장비 리뷰 프로젝트 임시 썸네일",
-    label: "장비 리뷰 프로젝트 열기",
-    type: "Gear Review / Visual Test",
-    title: "Project 05 - Camera & Lens Review",
-    description: "카메라와 렌즈를 실제 촬영 환경에서 이미지, 움직임, 워크플로우 중심으로 검증하는 리뷰 영상입니다.",
-    role: "리뷰 / 촬영 / 편집",
-  },
-  {
-    category: "gear",
-    image: "/assets/product-test.svg",
-    imageAlt: "제품 비주얼 테스트 프로젝트 임시 썸네일",
-    label: "제품 비주얼 테스트 프로젝트 열기",
-    type: "Product Review / Color Workflow",
-    title: "Project 06 - Product Visual Test",
-    description: "제품의 특징을 실제 사용 장면, 시네마틱 샘플, 명확한 리뷰 구조로 전달하는 영상입니다.",
-    role: "리뷰 / 연출 / 편집",
+    category: "review",
+    image: "/assets/gear-in-youtube.webp",
+    imageAlt: "Gear-in Youtube thumbnail",
+    href: "https://youtu.be/pjrMcWE4SvY",
+    type: "Review Channel / 2026",
+    title: "Gear-in Youtube",
+    description: "다양한 장비를 실사용 위주로 리뷰해보는 자체 유튜브 채널입니다.",
+    role: "촬영 / 편집",
+    release: "Public",
+    actions: [
+      { label: "영상 보기", href: "https://youtu.be/pjrMcWE4SvY" },
+      { label: "리뷰 채널", href: "https://www.youtube.com/@Gear-In" },
+    ],
   },
 ];
 
 const services = [
-  ["01", "Brand Film", "브랜드 소개 영상, 제품/공간 무드 필름, 캠페인 영상."],
-  ["02", "Event Film", "기업 행사, 현장 스케치, 인터뷰 기반 하이라이트 영상."],
-  ["03", "Performance Video", "무용, 공연, 쇼케이스, 라이브클립, 움직임 기반 영상."],
-  ["04", "Social Media Package", "릴스, 숏폼, 인스타그램 운영 콘텐츠, 월간 업로드 패키지."],
-  ["05", "Interview Content", "브랜드 인터뷰, 인물 기록, 유튜브 시리즈, 토크 콘텐츠."],
-  ["06", "Gear / Product Review", "카메라, 렌즈, 장비, 제품을 실제 촬영 환경에서 검증하는 리뷰 영상."],
+  ["01", "Dance Film", "움직임, 신체, 공간의 관계를 중심으로 한 댄스필름과 무브먼트 기반 영상을 제작합니다."],
+  [
+    "02",
+    "Mini Documentary / Interview",
+    "아티스트, 창작자, 브랜드의 세계관과 작업 과정을 담는 미니 다큐멘터리와 인터뷰 콘텐츠를 제작합니다.",
+  ],
+  ["03", "Performance Video", "공연, 쇼케이스, 라이브클립, 무대 기반 영상을 현장의 리듬과 에너지에 맞춰 제작합니다."],
+  ["04", "Music Video", "음악의 분위기와 아티스트의 이미지를 시각적으로 확장하는 뮤직비디오를 제작합니다."],
+  ["05", "Event Sketch", "행사의 단순 기록을 넘어, 현장의 분위기와 주요 순간을 하나의 흐름으로 구성합니다."],
+  ["06", "Social / Brand Content", "아트비디오의 감도를 바탕으로 브랜드 홍보영상, 소셜미디어 콘텐츠, 숏폼 영상을 제작합니다."],
+  [
+    "07",
+    "Gear / Visual Review",
+    "Gear-in 리뷰 채널을 통해 카메라, 렌즈, 영상 장비를 실제 촬영 환경에서 비주얼 중심으로 리뷰합니다.",
+  ],
 ];
 
 const processSteps = [
-  ["01", "Discover", "프로젝트의 목적, 톤, 타깃을 함께 정리합니다."],
-  ["02", "Plan", "촬영 구성, 무드, 인터뷰 질문, 일정 등을 설계합니다."],
-  ["03", "Shoot", "프로젝트에 맞는 장비와 방식으로 촬영합니다."],
-  ["04", "Edit", "편집, 색보정, 사운드, 자막으로 흐름을 완성합니다."],
-  ["05", "Deliver", "웹, 유튜브, 인스타그램, 행사 목적에 맞는 포맷으로 납품합니다."],
+  ["01", "Discover", "프로젝트의 목적, 분위기, 인물, 음악, 움직임의 방향을 함께 정리합니다."],
+  ["02", "Plan", "촬영 구성, 무드, 장소, 인터뷰 질문, 장면의 흐름을 설계합니다."],
+  ["03", "Shoot", "프로젝트의 성격에 맞는 장비와 방식으로 실사 기반의 이미지를 촬영합니다."],
+  ["04", "Edit", "편집, 색보정, 사운드, 자막을 통해 영상의 리듬과 감도를 완성합니다."],
+  ["05", "Deliver", "상영, 유튜브, 인스타그램, 행사, 브랜드 채널 등 사용 목적에 맞는 포맷으로 납품합니다."],
 ];
 
-const chipClass =
-  "rounded-full border border-site-line bg-white/[0.035] px-[13px] py-[9px] text-[13px] text-site-muted transition hover:border-[rgba(154,67,56,0.55)] hover:bg-site-accentSoft hover:text-site-text";
+const heroTags = ["Dance Film", "Mini Documentary", "Interview", "Performance", "Gear-in"];
 
-const buttonClass =
-  "inline-flex min-h-[46px] items-center justify-center rounded-full border border-site-line px-[18px] py-3 text-sm transition hover:-translate-y-0.5 hover:border-[rgba(239,231,218,0.34)]";
+function ExternalLink({ href, children, className }) {
+  return (
+    <a className={className} href={href} target="_blank" rel="noreferrer">
+      {children}
+    </a>
+  );
+}
 
 export default function Home() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -113,13 +162,13 @@ export default function Home() {
     <>
       <div className="grain" aria-hidden="true" />
 
-      <header className="fixed inset-x-0 top-0 z-[80] flex items-center justify-between bg-gradient-to-b from-[rgba(8,8,8,0.82)] via-[rgba(8,8,8,0.28)] to-transparent px-5 py-6 backdrop-blur-[14px] md:px-12">
-        <a className="inline-flex gap-[7px] text-lg font-bold tracking-normal" href="#top" aria-label="NEADY FILM Home">
+      <header className="site-header z-[80]">
+        <a className="logo" href="#top" aria-label="NEADY FILM Home">
           <span>NEADY</span>
-          <span className="font-medium text-site-muted">FILM</span>
+          <span>FILM</span>
         </a>
         <button
-          className="inline-flex rounded-full border border-site-line bg-white/[0.04] px-3.5 py-2.5 text-site-text md:hidden"
+          className="nav-toggle"
           type="button"
           aria-expanded={isNavOpen}
           aria-controls="site-nav"
@@ -127,21 +176,9 @@ export default function Home() {
         >
           Menu
         </button>
-        <nav
-          id="site-nav"
-          className={[
-            "absolute left-5 right-5 top-[72px] flex-col items-stretch gap-0 rounded-[18px] border border-site-line bg-[rgba(16,15,14,0.94)] p-2.5 text-sm text-site-muted md:static md:flex md:flex-row md:items-center md:gap-[26px] md:border-0 md:bg-transparent md:p-0",
-            isNavOpen ? "flex" : "hidden md:flex",
-          ].join(" ")}
-          aria-label="Main navigation"
-        >
+        <nav id="site-nav" className={`site-nav ${isNavOpen ? "open" : ""}`} aria-label="Main navigation">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              className="rounded-xl p-3.5 transition hover:bg-white/[0.05] hover:text-site-text md:p-0 md:hover:bg-transparent"
-              href={link.href}
-              onClick={() => setIsNavOpen(false)}
-            >
+            <a key={link.href} href={link.href} onClick={() => setIsNavOpen(false)}>
               {link.label}
             </a>
           ))}
@@ -149,53 +186,61 @@ export default function Home() {
       </header>
 
       <main id="top">
-        <section className="relative isolate grid min-h-[100vh] items-end overflow-hidden px-5 pb-12 pt-[140px] md:px-12" aria-labelledby="hero-title">
-          <div className="hero-media absolute inset-0 -z-20 scale-[1.02]" aria-hidden="true" />
-          <div className="hero-overlay absolute inset-0 -z-10" aria-hidden="true" />
-          <div className="mx-auto w-full max-w-site pb-[110px] md:pb-[78px]">
-            <p className="mb-[18px] text-xs font-bold uppercase tracking-[0.16em] text-site-muted">Seoul-based film studio</p>
-            <h1 id="hero-title" className="mb-6 max-w-[980px] text-[52px] font-bold leading-[0.92] tracking-normal md:text-[9vw] xl:text-[124px]">
-              Films for brands, spaces, and creative stories.
-            </h1>
-            <p className="max-w-[690px] text-[17px] text-site-muted md:text-[22px]">
-              NEADY FILM은 브랜드, 공간, 사람의 이야기를 영상으로 설계하는 서울 기반 영상 제작 스튜디오입니다. 분위기, 움직임, 현장의 감도를 중심으로 브랜드 필름, 행사 영상, 공연 영상, 인터뷰 콘텐츠, 소셜미디어 영상을 제작합니다.
+        <section className="hero" aria-labelledby="hero-title">
+          <div className="hero-media" aria-hidden="true">
+            <video className="hero-video" autoPlay muted loop playsInline poster="/assets/hero-poster.webp">
+              <source src="/assets/showreel.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div className="hero-overlay" aria-hidden="true" />
+          <div className="hero-inner">
+            <p className="eyebrow">Based in Korea</p>
+            <h1 id="hero-title">Live-action films for movement and story.</h1>
+            <p className="hero-copy">
+              NEADY FILM은 <strong>실사 기반의 필름룩과 아트비디오의 감도</strong>를 중심으로 작업하는 film
+              studio입니다. 독일에서 시작된 무대예술의 시선을 영상예술로 확장하며, 현재는 한국을 기반으로 다양한
+              창작자와 브랜드의 이야기를 영상으로 만듭니다.
             </p>
-            <div className="mt-[34px] flex flex-col flex-wrap gap-3 sm:flex-row">
-              <a className={`${buttonClass} border-site-text bg-site-text font-bold text-[#111]`} href="#works">
+            <p className="hero-copy">
+              댄스필름, 미니 다큐멘터리, 인터뷰, 공연 영상을 중심으로 작업하며, 뮤직비디오, 행사 스케치,
+              소셜미디어 콘텐츠, 홍보영상, 자체 리뷰 채널 Gear-in까지 운영합니다.
+            </p>
+            <div className="hero-actions">
+              <a className="button primary" href="#works">
                 대표 작업 보기
               </a>
-              <a className={`${buttonClass} bg-white/[0.035] text-site-text`} href="#contact">
+              <a className="button ghost" href="#contact">
                 프로젝트 문의하기
+              </a>
+              <a className="button ghost" href="/archive">
+                Archive 보기
               </a>
             </div>
           </div>
-          <div className="absolute bottom-7 left-5 right-5 flex flex-wrap justify-start gap-2 text-xs uppercase tracking-[0.12em] text-[rgba(239,231,218,0.56)] md:left-12 md:right-12 md:justify-center">
-            {["Brand Film", "Event Film", "Performance", "Social Content"].map((item) => (
-              <span key={item} className="rounded-full border border-site-line bg-[rgba(8,8,8,0.2)] px-[11px] py-2">
-                {item}
-              </span>
+          <div className="hero-meta" aria-label="Production categories">
+            {heroTags.map((tag) => (
+              <span key={tag}>{tag}</span>
             ))}
           </div>
         </section>
 
-        <section id="works" className="mx-auto max-w-site px-5 py-[82px] md:px-12 md:py-[118px]" aria-labelledby="works-title">
-          <div className="mb-11 grid items-end gap-6 md:grid-cols-[minmax(0,0.9fr)_minmax(280px,0.55fr)] md:gap-12">
+        <section id="works" className="section works-section" aria-labelledby="works-title">
+          <div className="section-head">
             <div>
-              <p className="mb-[18px] text-xs font-bold uppercase tracking-[0.16em] text-site-muted">Selected Works</p>
-              <h2 id="works-title" className="text-[34px] font-bold leading-[0.96] tracking-normal md:text-[5vw] xl:text-[74px]">
-                A curated structure ready for real projects.
-              </h2>
+              <p className="eyebrow">Selected Works</p>
+              <h2 id="works-title">Core works.</h2>
             </div>
-            <p className="text-[17px] text-site-muted">
-              현재는 실제 자료를 넣기 전의 데모 구성입니다. 각 카드의 썸네일, 영상 링크, 클라이언트명, 역할, 설명 문구를 실제 프로젝트 자료로 교체하면 바로 포트폴리오로 사용할 수 있습니다.
+            <p>
+              움직임, 인물, 음악, 공간의 감도를 실사 기반의 필름룩으로 다룹니다. 대표 작업은 댄스필름,
+              미니 다큐멘터리, 행사 스케치, 퍼포먼스 프로젝트, 비주얼 리뷰를 중심으로 구성했습니다.
             </p>
           </div>
 
-          <div className="mb-7 flex flex-wrap gap-2" role="group" aria-label="Filter works">
+          <div className="filters" role="group" aria-label="Filter works">
             {filterButtons.map((button) => (
               <button
                 key={button.id}
-                className={`${chipClass} ${activeFilter === button.id ? "border-[rgba(154,67,56,0.55)] bg-site-accentSoft text-site-text" : ""}`}
+                className={`filter-button ${activeFilter === button.id ? "active" : ""}`}
                 type="button"
                 onClick={() => setActiveFilter(button.id)}
               >
@@ -204,112 +249,152 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 gap-[18px] md:grid-cols-2">
+          <div className="project-grid">
             {visibleProjects.map((project) => (
-              <article key={project.title} className="group overflow-hidden rounded-card border border-site-line bg-gradient-to-b from-white/[0.052] to-white/[0.018] transition hover:-translate-y-1 hover:border-[rgba(239,231,218,0.28)]">
-                <a className="block aspect-video overflow-hidden bg-site-panel" href="#" aria-label={project.label}>
-                  <img className="h-full w-full object-cover transition duration-[450ms] group-hover:scale-[1.035]" src={project.image} alt={project.imageAlt} />
-                </a>
-                <div className="p-5 md:p-6">
-                  <p className="mb-2.5 text-xs uppercase tracking-[0.1em] text-site-muted">{project.type}</p>
-                  <h3 className="mb-2.5 text-[22px] font-bold leading-[1.04] tracking-normal md:text-[30px]">{project.title}</h3>
-                  <p className="text-site-muted">{project.description}</p>
-                  <dl className="mt-6 grid gap-2 border-t border-site-line pt-[18px]">
-                    <div className="grid grid-cols-[70px_1fr] gap-4 text-[13px]">
-                      <dt className="text-[rgba(239,231,218,0.48)]">역할</dt>
-                      <dd className="m-0 text-site-muted">{project.role}</dd>
+              <article key={project.title} className={`project-card ${project.featured ? "featured" : ""}`}>
+                <ExternalLink className="thumb" href={project.href}>
+                  <img src={project.image} alt={project.imageAlt} />
+                </ExternalLink>
+                <div className="project-info">
+                  <p className="project-type">{project.type}</p>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <dl>
+                    <div>
+                      <dt>역할</dt>
+                      <dd>{project.role}</dd>
                     </div>
-                    <div className="grid grid-cols-[70px_1fr] gap-4 text-[13px]">
-                      <dt className="text-[rgba(239,231,218,0.48)]">상태</dt>
-                      <dd className="m-0 text-site-muted">실제 프로젝트로 교체 예정</dd>
+                    <div>
+                      <dt>공개</dt>
+                      <dd>{project.release}</dd>
                     </div>
                   </dl>
+                  <div className="card-actions">
+                    {project.actions.map((action) => (
+                      <ExternalLink key={action.href} className="button ghost" href={action.href}>
+                        {action.label}
+                      </ExternalLink>
+                    ))}
+                  </div>
                 </div>
               </article>
             ))}
           </div>
+
+          <div className="archive-band">
+            <p className="eyebrow">More Works</p>
+            <h3>More works in Archive.</h3>
+            <p>
+              대표 작업 외에도 소셜미디어 콘텐츠, 브랜드 홍보영상, 행사 기록, 레스토랑/공간 콘텐츠, 짧은
+              비주얼 작업 등을 별도 Archive 페이지에서 확인할 수 있습니다.
+            </p>
+            <div className="inline-actions">
+              <a className="button primary" href="/archive">
+                Archive 보기
+              </a>
+            </div>
+          </div>
         </section>
 
-        <section id="services" className="mx-auto max-w-site px-5 py-[82px] md:px-12 md:py-[118px]" aria-labelledby="services-title">
-          <div className="mb-11 max-w-[760px]">
-            <p className="mb-[18px] text-xs font-bold uppercase tracking-[0.16em] text-site-muted">Services</p>
-            <h2 id="services-title" className="text-[34px] font-bold leading-[0.96] tracking-normal md:text-[5vw] xl:text-[74px]">
-              From planning to final delivery.
-            </h2>
+        <section id="services" className="section services-section" aria-labelledby="services-title">
+          <div className="section-head compact">
+            <p className="eyebrow">Services</p>
+            <h2 id="services-title">What we do.</h2>
           </div>
-
-          <div className="grid grid-cols-1 border-l border-t border-site-line md:grid-cols-3">
+          <div className="service-list">
             {services.map(([number, title, copy]) => (
-              <article key={number} className="border-b border-r border-site-line bg-white/[0.025] p-6 md:p-[30px]">
-                <span className="mb-[30px] block text-[13px] tracking-[0.16em] text-site-accent">{number}</span>
-                <h3 className="mb-3 text-2xl font-bold tracking-normal">{title}</h3>
-                <p className="mb-0 text-site-muted">{copy}</p>
+              <article key={number}>
+                <span>{number}</span>
+                <h3>{title}</h3>
+                <p>{copy}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section id="about" className="border-y border-site-line py-[82px] md:py-[118px]" aria-labelledby="about-title">
-          <div className="mx-auto grid max-w-site grid-cols-1 gap-6 px-5 md:grid-cols-[0.9fr_1fr] md:gap-[70px] md:px-12">
+        <section id="about" className="section about-section" aria-labelledby="about-title">
+          <div className="about-layout">
             <div>
-              <p className="mb-[18px] text-xs font-bold uppercase tracking-[0.16em] text-site-muted">About</p>
-              <h2 id="about-title" className="text-[34px] font-bold leading-[0.96] tracking-normal md:text-[5vw] xl:text-[74px]">
-                Not just recording. Designing the atmosphere.
-              </h2>
+              <p className="eyebrow">About</p>
+              <h2 id="about-title">Started from stage.</h2>
             </div>
-            <div className="text-lg">
-              <p className="text-[17px] text-site-muted">
-                NEADY FILM은 서울을 기반으로 활동하는 영상 제작 스튜디오입니다. 무용과 영상 작업을 이어온 정범석의 시선을 바탕으로, 브랜드 필름, 행사 스케치, 공연 영상, 인터뷰 콘텐츠, 소셜미디어 영상을 제작합니다.
+            <div className="about-copy">
+              <p>
+                NEADY FILM은 실사 기반의 필름룩과 아트비디오의 감도를 중심으로 작업하는 Based in Korea film
+                studio입니다. 2021년 독일에서 무대예술을 영상예술로 확장하는 작업에서 시작되었고, 2024년
+                7월 22일 한국에서 정식으로 출발했습니다.
               </p>
-              <p className="mt-[22px] text-[17px] text-site-muted">
-                우리는 단순히 장면을 기록하는 것보다, 사람과 공간, 브랜드가 가진 고유한 분위기를 발견하고 그것을 영상의 흐름으로 설계하는 것을 중요하게 생각합니다.
+              <p>
+                우리는 단순히 장면을 기록하는 것보다, 프로젝트가 가진 고유한 리듬과 감도를 발견하고 그것을 하나의
+                흐름으로 만드는 것을 중요하게 생각합니다.
               </p>
+              <p>한국을 기반으로 해외 작업도 가능하며, 한국어 / 독일어 / 영어로 커뮤니케이션합니다.</p>
             </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-site px-5 py-[82px] md:px-12 md:py-[118px]" aria-labelledby="process-title">
-          <div className="mb-11 max-w-[760px]">
-            <p className="mb-[18px] text-xs font-bold uppercase tracking-[0.16em] text-site-muted">Process</p>
-            <h2 id="process-title" className="text-[34px] font-bold leading-[0.96] tracking-normal md:text-[5vw] xl:text-[74px]">
-              A clear path for production.
-            </h2>
+        <section className="section process-section" aria-labelledby="process-title">
+          <div className="section-head compact">
+            <p className="eyebrow">Process</p>
+            <h2 id="process-title">How we work.</h2>
           </div>
-          <div className="grid grid-cols-1 border-l border-t border-site-line md:grid-cols-5">
+          <div className="process-grid">
             {processSteps.map(([number, title, copy]) => (
-              <div key={number} className="border-b border-r border-site-line bg-white/[0.025] p-6 md:p-[30px]">
-                <span className="mb-[30px] block text-[13px] tracking-[0.16em] text-site-accent">{number}</span>
-                <h3 className="mb-3 text-2xl font-bold tracking-normal">{title}</h3>
-                <p className="mb-0 text-site-muted">{copy}</p>
+              <div key={number}>
+                <span>{number}</span>
+                <h3>{title}</h3>
+                <p>{copy}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section id="contact" className="mx-auto max-w-[900px] px-5 py-[82px] text-center md:px-12 md:py-[118px]" aria-labelledby="contact-title">
-          <p className="mb-[18px] text-xs font-bold uppercase tracking-[0.16em] text-site-muted">Contact</p>
-          <h2 id="contact-title" className="mb-5 text-[34px] font-bold leading-[0.96] tracking-normal md:text-[5vw] xl:text-[74px]">
-            Let&apos;s build the next film.
-          </h2>
-          <p className="mx-auto max-w-[620px] text-[17px] text-site-muted">
-            브랜드 영상, 행사 기록, 공연 영상, 인터뷰 콘텐츠, 소셜미디어 영상 제작 문의를 받고 있습니다. 아래 연락처와 링크는 실제 정보로 교체하면 됩니다.
+        <section className="section channel-section" aria-labelledby="channel-title">
+          <div className="channel-layout">
+            <div>
+              <p className="eyebrow">Gear-in Review Channel</p>
+              <h2 id="channel-title">Visual reviews in real use.</h2>
+            </div>
+            <div className="channel-copy">
+              <p>
+                NEADY FILM은 자체 리뷰 채널 Gear-in을 통해 카메라, 렌즈, 영상 장비를 실제 촬영 환경에서
+                테스트하고 리뷰합니다. 스펙보다 실제 이미지, 움직임, 색감, 워크플로우를 중심으로 장비를 바라봅니다.
+              </p>
+              <div className="inline-actions">
+                <ExternalLink className="button primary" href="https://www.youtube.com/@Gear-In">
+                  Gear-in 리뷰 채널 보기
+                </ExternalLink>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="section contact-section" aria-labelledby="contact-title">
+          <p className="eyebrow">Contact</p>
+          <h2 id="contact-title">Let&apos;s build the next film.</h2>
+          <p>
+            댄스필름, 미니 다큐멘터리, 인터뷰, 공연 영상, 뮤직비디오 제작 문의를 받고 있습니다. 행사 스케치,
+            브랜드 홍보영상, 소셜미디어 콘텐츠 역시 NEADY FILM의 영상적 감도를 바탕으로 함께 작업할 수 있습니다.
           </p>
-          <div className="mt-[34px] flex flex-col flex-wrap justify-center gap-3 sm:flex-row">
-            <a className={`${buttonClass} border-site-text bg-site-text font-bold text-[#111]`} href="mailto:hello@neadyfilm.com">
-              hello@neadyfilm.com
+          <div className="contact-actions">
+            <a className="button primary" href="mailto:neadyfilm0722@naver.com">
+              프로젝트 문의
             </a>
-            <a className={`${buttonClass} bg-white/[0.035] text-site-text`} href="#" aria-label="인스타그램 열기">
+            <a className="button ghost" href="mailto:neadyfilm0722@naver.com">
+              neadyfilm0722@naver.com
+            </a>
+            <ExternalLink className="button ghost" href="https://www.instagram.com/neadyfilm/">
               Instagram
-            </a>
-            <a className={`${buttonClass} bg-white/[0.035] text-site-text`} href="#" aria-label="유튜브 열기">
-              YouTube
-            </a>
+            </ExternalLink>
+            <ExternalLink className="button ghost" href="https://www.youtube.com/@Gear-In">
+              Gear-in Review Channel
+            </ExternalLink>
           </div>
         </section>
       </main>
 
-      <footer className="flex flex-col justify-between gap-5 border-t border-site-line px-5 py-7 text-[13px] text-[rgba(239,231,218,0.48)] md:flex-row md:px-12">
-        <p className="m-0">© {currentYear} NEADY FILM. Portfolio demo.</p>
+      <footer className="site-footer">
+        <p>© {currentYear} NEADY FILM.</p>
         <a href="#top">맨 위로</a>
       </footer>
     </>

@@ -26,6 +26,7 @@ test("App Router files and Tailwind configuration exist", () => {
     "tailwind.config.js",
     "app/layout.jsx",
     "app/page.jsx",
+    "app/archive/page.jsx",
     "app/globals.css",
   ].forEach((path) => assert.ok(existsSync(join(root, path)), `${path} should exist`));
 
@@ -39,11 +40,30 @@ test("portfolio content and interactions were migrated", () => {
   assert.match(page, /"use client"/);
   assert.match(page, /useState/);
   assert.match(page, /NEADY FILM/);
+  assert.match(page, /Based in Korea/);
   assert.match(page, /Selected Works/);
+  assert.match(page, /Kosmos Project/);
+  assert.match(page, /1min Improvisation/);
+  assert.match(page, /Gear-in Youtube/);
   assert.match(page, /Services/);
+  assert.match(page, /Dance Film/);
+  assert.match(page, /Mini Documentary \/ Interview/);
   assert.match(page, /Contact/);
+  assert.match(page, /neadyfilm0722@naver\.com/);
   assert.match(page, /filterButtons/);
   assert.match(page, /projects\.filter/);
+});
+
+test("archive route content and filtering were migrated", () => {
+  const page = read("app/archive/page.jsx");
+
+  assert.match(page, /"use client"/);
+  assert.match(page, /Archive/);
+  assert.match(page, /More works/);
+  assert.match(page, /Social Content Series/);
+  assert.match(page, /Brand Promotion Film/);
+  assert.match(page, /Restaurant & Space Content/);
+  assert.match(page, /archiveProjects\.filter/);
 });
 
 test("header stays above page content with a valid Tailwind z-index utility", () => {
@@ -53,16 +73,42 @@ test("header stays above page content with a valid Tailwind z-index utility", ()
   assert.match(page, /<header className="[^"]*z-\[80\]/);
 });
 
-test("existing SVG assets are available from public assets", () => {
+test("hero video renders opaque to avoid poster ghosting behind it", () => {
+  const css = read("app/globals.css");
+
+  assert.doesNotMatch(css, /\.hero-video\s*\{[^}]*opacity:\s*0\.[0-9]+/s);
+  assert.match(css, /\.hero-video\s*\{[^}]*opacity:\s*1\s*;/s);
+});
+
+test("v5-final assets are available from public assets", () => {
   [
-    "brand-film.svg",
-    "event-film.svg",
-    "gear-review.svg",
-    "hero-placeholder.svg",
-    "performance.svg",
-    "product-test.svg",
-    "restaurant.svg",
+    "archive-brand.svg",
+    "archive-more.svg",
+    "archive-portrait.svg",
+    "archive-restaurant.svg",
+    "archive-short.svg",
+    "archive-social.svg",
+    "dance-film-01.webp",
+    "dance-film-02.webp",
+    "event-sketch-01.webp",
+    "event-sketch-02.webp",
+    "gear-in-youtube.webp",
+    "hero-poster.webp",
+    "kosmos-project-2026.webp",
+    "maiskind-project.webp",
+    "showreel.mp4",
   ].forEach((file) => {
     assert.ok(existsSync(join(root, "public", "assets", file)), `${file} should be copied`);
   });
+});
+
+test("raster page images use optimized WebP assets", () => {
+  const page = read("app/page.jsx");
+  const archive = read("app/archive/page.jsx");
+  const css = read("app/globals.css");
+
+  assert.doesNotMatch(page + archive + css, /\.(jpg|jpeg)/i);
+  assert.match(page, /kosmos-project-2026\.webp/);
+  assert.match(page, /gear-in-youtube\.webp/);
+  assert.match(css, /hero-poster\.webp/);
 });

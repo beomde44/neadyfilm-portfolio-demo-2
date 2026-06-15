@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "NEADY FILM - Portfolio Demo",
+  title: "NEADY FILM - Based in Korea",
   description:
-    "NEADY FILM 포트폴리오 데모 - 브랜드, 공간, 창작자의 이야기를 위한 영상 제작 스튜디오.",
+    "NEADY FILM은 실사 기반의 필름룩과 아트비디오의 감도를 중심으로 작업하는 Based in Korea film studio입니다.",
 };
 
 export default function RootLayout({ children }) {
