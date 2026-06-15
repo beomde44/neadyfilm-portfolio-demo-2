@@ -35,7 +35,12 @@ test("App Router files and Tailwind configuration exist", () => {
 });
 
 test("portfolio content and interactions were migrated", () => {
-  const page = read("app/page.jsx");
+  const page = [
+    read("app/page.jsx"),
+    read("components/HomePage.jsx"),
+    read("components/Header.jsx"),
+    read("data/site.js"),
+  ].join("\n");
 
   assert.match(page, /"use client"/);
   assert.match(page, /useState/);
@@ -55,14 +60,14 @@ test("portfolio content and interactions were migrated", () => {
 });
 
 test("main project roles include color grading where filming and editing are listed", () => {
-  const page = read("app/page.jsx");
+  const page = read("data/site.js");
 
   assert.doesNotMatch(page, /role:\s*"촬영 \/ 편집"/);
   assert.equal(page.match(/role:\s*"촬영 \/ 편집 \/ 색보정"/g)?.length, 6);
 });
 
 test("archive route content and filtering were migrated", () => {
-  const page = read("app/archive/page.jsx");
+  const page = [read("app/archive/page.jsx"), read("components/ArchivePage.jsx"), read("data/site.js")].join("\n");
 
   assert.match(page, /"use client"/);
   assert.match(page, /Archive/);
@@ -74,7 +79,7 @@ test("archive route content and filtering were migrated", () => {
 });
 
 test("header stays above page content with a valid Tailwind z-index utility", () => {
-  const page = read("app/page.jsx");
+  const page = read("components/Header.jsx");
 
   assert.doesNotMatch(page, /\bz-80\b/);
   assert.match(page, /<header className="[^"]*z-\[80\]/);
@@ -110,8 +115,8 @@ test("v5-final assets are available from public assets", () => {
 });
 
 test("raster page images use optimized WebP assets", () => {
-  const page = read("app/page.jsx");
-  const archive = read("app/archive/page.jsx");
+  const page = [read("app/page.jsx"), read("components/HomePage.jsx"), read("data/site.js")].join("\n");
+  const archive = [read("app/archive/page.jsx"), read("components/ArchivePage.jsx"), read("data/site.js")].join("\n");
   const css = read("app/globals.css");
 
   assert.doesNotMatch(page + archive + css, /\.(jpg|jpeg)/i);
@@ -140,4 +145,52 @@ test("landing typography keeps the original bold visual hierarchy", () => {
   assert.match(css, /\.section-head h2,[\s\S]*?font-weight:\s*700\s*;/);
   assert.match(css, /\.project-card\.featured \.project-info h3\s*\{[^}]*font-size:\s*50px\s*;/s);
   assert.match(css, /\.project-info h3\s*\{[^}]*font-weight:\s*700\s*;/s);
+});
+
+test("portfolio data is kept outside page components", () => {
+  [
+    "data/site.js",
+    "components/HomePage.jsx",
+    "components/ArchivePage.jsx",
+    "components/Header.jsx",
+    "components/Footer.jsx",
+    "components/ProjectCard.jsx",
+    "components/FilterTabs.jsx",
+  ].forEach((path) => assert.ok(existsSync(join(root, path)), `${path} should exist`));
+
+  assert.doesNotMatch(read("app/page.jsx"), /const projects =/);
+  assert.doesNotMatch(read("app/archive/page.jsx"), /const archiveProjects =/);
+  assert.match(read("data/site.js"), /export const projects/);
+  assert.match(read("data/site.js"), /export const archiveProjects/);
+});
+
+test("pages expose SEO and sharing metadata", () => {
+  const layout = read("app/layout.jsx");
+  const home = read("app/page.jsx");
+  const archive = read("app/archive/page.jsx");
+
+  assert.match(layout, /metadataBase/);
+  assert.match(layout, /openGraph/);
+  assert.match(layout, /twitter/);
+  assert.match(layout, /alternates/);
+  assert.match(home, /export const metadata/);
+  assert.match(archive, /export const metadata/);
+  assert.match(archive, /Archive/);
+});
+
+test("portfolio cards use Next Image optimization", () => {
+  const card = read("components/ProjectCard.jsx");
+  const home = read("components/HomePage.jsx");
+  const archive = read("components/ArchivePage.jsx");
+
+  assert.match(card, /from "next\/image"/);
+  assert.match(card, /<Image/);
+  assert.doesNotMatch(home + archive, /<img\s/);
+});
+
+test("Tailwind scans extracted component files", () => {
+  const config = read("tailwind.config.js");
+
+  assert.match(config, /\.\/app\/\*\*\/\*\.\{js,jsx\}/);
+  assert.match(config, /\.\/components\/\*\*\/\*\.\{js,jsx\}/);
 });
