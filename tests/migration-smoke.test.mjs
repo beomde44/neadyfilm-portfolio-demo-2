@@ -54,6 +54,13 @@ test("portfolio content and interactions were migrated", () => {
   assert.match(page, /projects\.filter/);
 });
 
+test("main project roles include color grading where filming and editing are listed", () => {
+  const page = read("app/page.jsx");
+
+  assert.doesNotMatch(page, /role:\s*"촬영 \/ 편집"/);
+  assert.equal(page.match(/role:\s*"촬영 \/ 편집 \/ 색보정"/g)?.length, 6);
+});
+
 test("archive route content and filtering were migrated", () => {
   const page = read("app/archive/page.jsx");
 

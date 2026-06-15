@@ -43,7 +43,7 @@ const projects = [
     title: "1min Improvisation",
     description:
       "최소한의 편집점을 제외한 모든 과정이 즉흥적 퍼포먼스로 진행된 작업입니다. 퍼포머와 촬영자가 현장에서 함께 반응하며 만든 댄스필름입니다.",
-    role: "촬영 / 편집",
+    role: "촬영 / 편집 / 색보정",
     release: "Public",
     actions: [{ label: "영상 보기", href: "https://youtu.be/qmvkKhKLPbU?si=xffRqaEOJKO_Zze6" }],
   },
@@ -56,7 +56,7 @@ const projects = [
     title: "Circle of life - 순환",
     description:
       "최소한의 편집점을 제외한 모든 과정이 즉흥적 퍼포먼스로 진행된 작업입니다. 퍼포머와 촬영자 모두 현장에서 즉흥적으로 작업을 진행했습니다.",
-    role: "촬영 / 편집",
+    role: "촬영 / 편집 / 색보정",
     release: "Public",
     actions: [{ label: "영상 보기", href: "https://youtu.be/_Hav2WOc-qg" }],
   },
@@ -68,7 +68,7 @@ const projects = [
     type: "Event Sketch / 2025",
     title: "ASDFxHousetrain",
     description: "ASDF와 Housetrain의 퍼포먼스, 파티, 워크샵 나잇을 기록한 행사 스케치 영상입니다.",
-    role: "촬영 / 편집",
+    role: "촬영 / 편집 / 색보정",
     release: "Public",
     actions: [{ label: "영상 보기", href: "https://youtu.be/kEqJIk01OhU" }],
   },
@@ -80,7 +80,7 @@ const projects = [
     type: "Event Sketch / 2026",
     title: "스마트 저축은행 체육대회",
     description: "스마트 저축은행 체육대회의 현장 분위기와 주요 순간을 기록한 행사 스케치 영상입니다.",
-    role: "촬영 / 편집",
+    role: "촬영 / 편집 / 색보정",
     release: "Public",
     actions: [{ label: "영상 보기", href: "https://youtu.be/yyKmHvNNsEY" }],
   },
@@ -92,7 +92,7 @@ const projects = [
     type: "Performance Project Video / 2021",
     title: "Maiskind Project",
     description: "독일에서 진행된 Maiskind Project의 퍼포먼스 단편영화 중 한 파트입니다.",
-    role: "촬영 / 편집",
+    role: "촬영 / 편집 / 색보정",
     release: "Public",
     actions: [
       { label: "영상 보기", href: "https://youtu.be/xLYul6q663M" },
@@ -107,7 +107,7 @@ const projects = [
     type: "Review Channel / 2026",
     title: "Gear-in Youtube",
     description: "다양한 장비를 실사용 위주로 리뷰해보는 자체 유튜브 채널입니다.",
-    role: "촬영 / 편집",
+    role: "촬영 / 편집 / 색보정",
     release: "Public",
     actions: [
       { label: "영상 보기", href: "https://youtu.be/pjrMcWE4SvY" },
