@@ -112,3 +112,25 @@ test("raster page images use optimized WebP assets", () => {
   assert.match(page, /gear-in-youtube\.webp/);
   assert.match(css, /hero-poster\.webp/);
 });
+
+test("local variable fonts are loaded from public fonts", () => {
+  const css = read("app/globals.css");
+
+  assert.ok(existsSync(join(root, "public", "fonts", "InterVariable.woff2")));
+  assert.ok(existsSync(join(root, "public", "fonts", "PretendardVariable.woff2")));
+  assert.match(css, /font-family:\s*"Inter"/);
+  assert.match(css, /url\("\/fonts\/InterVariable\.woff2"\)/);
+  assert.match(css, /font-family:\s*"Pretendard Variable"/);
+  assert.match(css, /url\("\/fonts\/PretendardVariable\.woff2"\)/);
+});
+
+test("landing typography keeps the original bold visual hierarchy", () => {
+  const css = read("app/globals.css");
+
+  assert.match(css, /h1\s*\{[^}]*font-weight:\s*700\s*;/s);
+  assert.match(css, /\.hero-copy\s*\{[^}]*font-size:\s*22px\s*;/s);
+  assert.match(css, /\.section-head h2,[\s\S]*?font-size:\s*56px\s*;/);
+  assert.match(css, /\.section-head h2,[\s\S]*?font-weight:\s*700\s*;/);
+  assert.match(css, /\.project-card\.featured \.project-info h3\s*\{[^}]*font-size:\s*50px\s*;/s);
+  assert.match(css, /\.project-info h3\s*\{[^}]*font-weight:\s*700\s*;/s);
+});

@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Pretendard Variable";
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+  src: url("/fonts/PretendardVariable.woff2") format("woff2");
+}
+
 :root {
   --bg: #080808;
   --panel: #11100f;
@@ -26,7 +42,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Inter, Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+  font-family: "Inter", "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
   line-height: 1.55;
   letter-spacing: 0;
 }
@@ -175,17 +191,18 @@ p {
 }
 
 h1 {
-  max-width: 880px;
+  max-width: 1040px;
   margin-bottom: 20px;
   font-size: 68px;
-  line-height: 0.98;
+  font-weight: 700;
+  line-height: 0.96;
   letter-spacing: 0;
 }
 
 .hero-copy {
   max-width: 760px;
   color: var(--muted);
-  font-size: 21px;
+  font-size: 22px;
 }
 
 .hero-copy strong {
@@ -277,8 +294,9 @@ h1 {
 .contact-section h2,
 .channel-layout h2,
 .archive-band h3 {
-  font-size: 52px;
-  line-height: 1;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 0.98;
   letter-spacing: 0;
   margin-bottom: 0;
 }
@@ -390,12 +408,13 @@ h1 {
 .project-info h3 {
   margin-bottom: 10px;
   font-size: 30px;
+  font-weight: 700;
   letter-spacing: 0;
-  line-height: 1.06;
+  line-height: 1.04;
 }
 
 .project-card.featured .project-info h3 {
-  font-size: 44px;
+  font-size: 50px;
 }
 
 .project-info p {
@@ -488,6 +507,7 @@ h1 {
 .archive-info-card h3 {
   margin-bottom: 12px;
   font-size: 24px;
+  font-weight: 700;
   letter-spacing: 0;
 }
 
