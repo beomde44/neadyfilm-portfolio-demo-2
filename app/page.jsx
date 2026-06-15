@@ -4,7 +4,6 @@ import { useState } from "react";
 
 const navLinks = [
   { href: "#works", label: "Works" },
-  { href: "/archive", label: "Archive" },
   { href: "#services", label: "Services" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
@@ -55,7 +54,7 @@ const projects = [
     type: "Dance Film / 2025",
     title: "Circle of life - 순환",
     description:
-      "최소한의 편집점을 제외한 모든 과정이 즉흥적 퍼포먼스로 진행된 작업입니다. 퍼포머와 촬영자 모두 현장에서 즉흥적으로 작업을 진행했습니다.",
+      "무용 퍼포먼스가 지닌 현장성과 에너지, 그리고 무용수들의 움직임과 감정을 영상 언어로 재해석하여 담아낸 공연 기반 댄스필름입니다.",
     role: "촬영 / 편집 / 색보정",
     release: "Public",
     actions: [{ label: "영상 보기", href: "https://youtu.be/_Hav2WOc-qg" }],
