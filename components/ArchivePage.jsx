@@ -39,7 +39,7 @@ export default function ArchivePage() {
             <h1 id="archive-title">More works.</h1>
             <p className="hero-copy">
               대표 작업 외에도 다양한 형식의 영상 작업을 진행하고 있습니다. 소셜미디어 콘텐츠, 브랜드 홍보영상,
-              행사 기록, 레스토랑/공간 콘텐츠, 짧은 비주얼 필름 등 프로젝트의 목적에 맞춰 유연하게 제작합니다.
+              댄스필름, 행사 기록, 퍼포먼스, 소셜미디어 콘텐츠와 브랜드 영상 등 다양한 작업을 모았습니다.
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#archive-works">
@@ -71,8 +71,7 @@ export default function ArchivePage() {
               <h2 id="archive-works-title">Flexible archive.</h2>
             </div>
             <p>
-              이 페이지는 대표 작업보다 더 넓은 범위의 작업을 보여주는 공간입니다. 추후 소셜미디어 콘텐츠, 브랜드
-              홍보영상, 레스토랑/공간 콘텐츠, 포트레이트 프로젝트 등을 추가할 수 있습니다.
+              대표 작업에서 이동한 댄스필름과 행사 기록, 퍼포먼스 프로젝트를 비롯해 다양한 형식의 작업을 확인할 수 있습니다.
             </p>
           </div>
 
@@ -85,7 +84,7 @@ export default function ArchivePage() {
 
           <div className="project-grid">
             {visibleProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} labels={{ role: "범위", release: "링크" }} />
+              <ProjectCard key={project.title} project={project} labels={{ role: "범위", release: "공개" }} />
             ))}
           </div>
         </section>
