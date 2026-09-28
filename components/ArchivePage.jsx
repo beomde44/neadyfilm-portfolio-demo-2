@@ -84,7 +84,7 @@ export default function ArchivePage() {
 
           <div className="project-grid">
             {visibleProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} labels={{ role: "범위", release: "공개" }} />
+              <ProjectCard key={project.href || project.title} project={project} labels={{ role: "범위", release: "공개" }} />
             ))}
           </div>
         </section>
