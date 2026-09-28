@@ -78,7 +78,7 @@ export const projects = [
   },
   {
     category: "dance",
-    image: "/assets/movementbridge-body-diary.webp",
+    image: "/assets/movementbridge-body-diary-v2.webp",
     imageAlt: "무브먼트브릿지 신체일기(보통의움직임) 프로젝트 영상 썸네일",
     href: "https://youtu.be/engyXWh-P4w",
     type: "Dance Film / Mini Documentary / 2026",
@@ -103,7 +103,7 @@ export const projects = [
   },
   {
     category: "dance",
-    image: "/assets/hanam-dream-dance-film.webp",
+    image: "/assets/hanam-dream-dance-film-v2.webp",
     imageAlt: "하남문화재단 꿈의 무용단 댄스필름 썸네일",
     href: "https://youtu.be/Hk_wHmGlJuU",
     type: "Dance Film / 2026",
