@@ -91,7 +91,7 @@ export const projects = [
   },
   {
     category: "event",
-    image: "/assets/event-sketch-02.webp",
+    image: "/assets/smart-savings-bank-2026-thumbnail.webp",
     imageAlt: "스마트 저축은행 체육대회 thumbnail",
     href: "https://youtu.be/yyKmHvNNsEY",
     type: "Event Sketch / 2026",
