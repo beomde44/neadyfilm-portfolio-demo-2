@@ -167,16 +167,28 @@ export const archiveIntroCards = [
 export const archiveProjects = [
   {
     category: "dance",
-    image: "/assets/dance-film-01.webp",
+    image: "/assets/one-minute-improvisation-archive.webp",
     imageAlt: "1min Improvisation thumbnail",
-    href: "https://youtu.be/qmvkKhKLPbU?si=xffRqaEOJKO_Zze6",
+    href: "https://www.youtube.com/watch?v=8E3ll0j8hCU",
     type: "Dance Film / 2026",
     title: "1min Improvisation",
     description:
       "최소한의 편집점을 제외한 모든 과정이 즉흥적 퍼포먼스로 진행된 작업입니다. 퍼포머와 촬영자가 현장에서 함께 반응하며 만든 댄스필름입니다.",
     scope: "촬영 / 편집 / 색보정",
     release: "Public",
-    actions: [{ label: "영상 보기", href: "https://youtu.be/qmvkKhKLPbU?si=xffRqaEOJKO_Zze6" }],
+    actions: [{ label: "영상 보기", href: "https://www.youtube.com/watch?v=8E3ll0j8hCU" }],
+  },
+  {
+    category: "brand",
+    image: "/assets/lee-gil-lee-gu-choi-inseon-2024.webp",
+    imageAlt: "이길이구 갤러리 최인선 작가님 전시 홍보영상 썸네일",
+    href: "https://youtu.be/XxlL11O-NmA",
+    type: "Exhibition Promotion / 2024",
+    title: "이길이구 갤러리 최인선 작가님 전시 홍보영상 2024",
+    description: "이길이구 갤러리에 최인선 작가님의 전시 관련 홍보영상입니다.",
+    scope: "전시 홍보영상",
+    release: "Public",
+    actions: [{ label: "영상 보기", href: "https://youtu.be/XxlL11O-NmA" }],
   },
   {
     category: "event",
